@@ -1,5 +1,7 @@
 # 📜 Suffle
 
+
+**▶ Play live: https://uddesay.github.io/suffle/**
 Confused about what to do? Suffle turns indecision into a tiny game:
 
 1. **Confusion** – tell the game your dilemma.
