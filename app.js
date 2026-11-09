@@ -203,3 +203,6 @@ $('soundBtn').onclick = () => {
 window.addEventListener('resize', () => { if (!$('s3').hidden && !state.busy) layout(slips, false); });
 
 go(1);
+
+/* PWA: offline + installable */
+if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
