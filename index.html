@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Suffle — confused? Write 3-5 options on paper slips, shuffle them, pick one and let fate decide." />
+  <title>Suffle — Chit Utha Ke Decide Karo</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E📜%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>📜 Suffle</h1>
+      <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <button id="soundBtn" class="icon" aria-pressed="true" aria-label="Sound">🔔</button>
+    </header>
+
+    <!-- 1. Confusion -->
+    <section class="scene" id="s1" data-scene="1">
+      <div class="thinker">
+        <div class="person">🤔</div>
+        <div class="bubbles"><span>Pizza? 🍕</span><span>Movie? 🎬</span><span>Sona? 😴</span><span>Gym? 💪</span><span>Padhai? 📚</span></div>
+      </div>
+      <h2>Dimaag mein confusion hai?</h2>
+      <p class="sub">Kya karun, kya na karun… Pehle batao, sawaal kya hai?</p>
+      <input id="question" maxlength="100" autocomplete="off" placeholder="Aaj dinner mein kya khaun?" aria-label="Your dilemma" />
+      <div class="row">
+        <button class="btn ghost" id="idea" type="button">🎲 Idea do</button>
+        <button class="btn main" id="to2" type="button">Aage badho →</button>
+      </div>
+    </section>
+
+    <!-- 2. Options -->
+    <section class="scene" id="s2" data-scene="2" hidden>
+      <h2 id="qTitle"></h2>
+      <p class="sub">Dil mein jo <b>3 se 5</b> options aa rahe hain, likh do. Har option ek chit banegi.</p>
+      <form id="optForm" class="add">
+        <input id="optInput" maxlength="40" autocomplete="off" placeholder="Option likho…" aria-label="Option" />
+        <button class="btn main" type="submit" aria-label="Add option">➕</button>
+      </form>
+      <ul id="optList" class="opt-list"></ul>
+      <p id="optHint" class="hint"></p>
+      <div class="row">
+        <button class="btn ghost" id="back1" type="button">← Wapas</button>
+        <button class="btn main" id="to3" type="button" disabled>Chit banao ✂️</button>
+      </div>
+    </section>
+
+    <!-- 3. Table -->
+    <section class="scene" id="s3" data-scene="3" hidden>
+      <h2 id="tableTitle">Chits taiyaar hain</h2>
+      <p class="sub" id="tableSub">Sab chit fold ho gayi. Ab milao!</p>
+      <div class="table" id="table" aria-label="Paper slips"></div>
+      <div class="row center">
+        <button class="btn hero" id="shuffle" type="button">🔀 Chit Milao (Shuffle)</button>
+      </div>
+      <button class="link" id="back2" type="button">← Options badlo</button>
+    </section>
+
+    <!-- 4. Result -->
+    <section class="scene" id="s4" data-scene="4" hidden>
+      <div class="reveal">
+        <p class="sub">Tumne chit kholi… aur usme likha hai</p>
+        <div class="unfold" id="paper"><span id="winner"></span></div>
+        <h2 class="verdict">Bas! Ab yehi karna hai 🎉</h2>
+        <p class="sub" id="resultQ"></p>
+      </div>
+      <div class="row center">
+        <button class="btn ghost" id="again" type="button">🔄 Dobara milao</button>
+        <button class="btn main" id="fresh" type="button">✨ Naya sawaal</button>
+      </div>
+    </section>
+  </main>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <script src="app.js"></script>
+</body>
+</html>
